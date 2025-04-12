@@ -1,0 +1,71 @@
+.selectWrapper {
+  position: relative;
+  margin-top: 64px;
+  margin-bottom: 32px;
+}
+
+.selectedValue {
+  position: relative;
+  display: inline-block;
+  font-family: Inter;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  color: #fbfbfb;
+  background-color: #54be96;
+  padding: 14px 40px 14px 18px;
+  width: 226px;
+  border-radius: 14px;
+  cursor: pointer;
+}
+
+.title {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+  color: #8a8a89;
+  margin-bottom: 8px;
+}
+
+.icon {
+  position: absolute;
+  top: 14px;
+  right: 18px;
+  transition: transform 0.3s ease;
+}
+
+.iconOpen {
+  transform: rotate(180deg);
+}
+
+.iconClose {
+  transform: rotate(0deg);
+}
+
+.dropdown {
+  position: absolute;
+  top: 82px;
+  left: 0;
+  background-color: #fff;
+  border-radius: 14px;
+  box-shadow: 0px 20px 69px 0px #00000012;
+  width: 226px;
+  height: 216px;
+  padding: 14px 18px;
+  z-index: 1;
+}
+
+.option {
+  cursor: pointer;
+  font-family: Inter;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0;
+  color: #191a154d;
+  margin-bottom: 8px;
+}
+.option:focus,
+.option:hover {
+  color: #191a15;
+}

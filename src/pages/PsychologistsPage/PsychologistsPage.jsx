@@ -84,7 +84,6 @@ const PsychologistsPage = () => {
 
   return (
     <div className={css.container}>
-      <p>Filters</p>
       <Filters onFilterChange={handleFilterChange} />
       <PsychologistsList psychologists={psychologists} />
       {psychologists.length < allPsychologists.length && (

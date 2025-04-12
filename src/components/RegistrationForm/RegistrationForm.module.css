@@ -80,6 +80,9 @@
   margin-top: 22px;
   letter-spacing: -0.16px;
 }
+.btnSubmit:hover {
+  background-color: #36a379;
+}
 .formRegisrt {
   display: flex;
   flex-direction: column;

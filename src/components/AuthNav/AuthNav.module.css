@@ -16,6 +16,9 @@
   color: #fbfbfb;
   padding: 14px 40px;
 }
+.btnRegistr:hover {
+  background-color: #36a379;
+}
 .btnLogin {
   font-family: Inter;
   background-color: transparent;
@@ -27,4 +30,7 @@
   letter-spacing: -0.16px;
   color: #191a15;
   padding: 14px 39px;
+}
+.btnLogin:hover {
+  background-color: #54be9633;
 }
