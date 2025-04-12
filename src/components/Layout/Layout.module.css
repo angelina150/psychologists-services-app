@@ -1,0 +1,14 @@
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 128px;
+}
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  padding-top: 24px;
+  padding-bottom: 24px;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #191a151a;
+}

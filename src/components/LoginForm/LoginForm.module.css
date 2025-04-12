@@ -1,0 +1,100 @@
+.modalBackdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(25, 26, 21, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  overscroll-behavior: none;
+  overflow: hidden;
+}
+
+.modalContent {
+  position: relative;
+  width: 566px;
+  padding: 64px;
+  border-radius: 30px;
+  background-color: #fbfbfb;
+}
+.iconClose {
+  stroke: rgba(25, 26, 21, 1);
+}
+.containerLogin {
+  display: flex;
+  flex-direction: column;
+}
+.title {
+  font-size: 40px;
+  line-height: 48px;
+  color: #191a15;
+  margin-bottom: 20px;
+}
+.desc {
+  color: #191a1580;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0;
+  margin-bottom: 40px;
+}
+.input {
+  font-family: Inter;
+  min-width: 438px;
+  border-radius: 12px;
+  padding: 16px 18px;
+  border-width: 1px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  vertical-align: middle;
+  color: #191a15;
+  border: 1px solid #191a151a;
+  background-color: transparent;
+  padding-right: 40px;
+}
+.input::placeholder {
+  font-family: Inter;
+  color: #191a15;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  vertical-align: middle;
+}
+.btnSubmit {
+  background-color: #54be96;
+  border: none;
+  border-radius: 30px;
+  color: #fbfbfb;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  text-align: center;
+  min-width: 438px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  font-family: Inter;
+  margin-top: 22px;
+  letter-spacing: -0.16px;
+}
+.formLogIn {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.iconClose {
+  stroke: rgba(25, 26, 21, 1);
+}
+.closeBtn {
+  position: absolute;
+  top: 28px;
+  right: 28px;
+  background-color: transparent;
+  border: none;
+}
+.labelPassword {
+  position: relative;
+}

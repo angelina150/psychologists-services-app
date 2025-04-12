@@ -1,0 +1,14 @@
+#root {
+  max-width: 1440px;
+  margin: 0 auto;
+  text-align: center;
+  padding-left: 128px;
+  padding-right: 128px;
+}
+
+.loader {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}

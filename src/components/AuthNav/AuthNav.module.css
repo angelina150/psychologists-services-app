@@ -1,0 +1,30 @@
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  justify-content: end;
+}
+.btnRegistr {
+  font-family: Inter;
+  background-color: #54be96;
+  border: none;
+  border-radius: 30px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: -0.16px;
+  color: #fbfbfb;
+  padding: 14px 40px;
+}
+.btnLogin {
+  font-family: Inter;
+  background-color: transparent;
+  border: 1px solid #191a1533;
+  border-radius: 30px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: -0.16px;
+  color: #191a15;
+  padding: 14px 39px;
+}

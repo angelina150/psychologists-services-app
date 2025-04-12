@@ -1,0 +1,56 @@
+.navWrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 130px;
+  align-items: center;
+  text-align: center;
+  justify-content: flex-start;
+}
+.navWrapperLog {
+  display: flex;
+  flex-direction: row;
+  gap: 226px;
+  align-items: center;
+  text-align: center;
+  justify-content: flex-start;
+}
+
+.logoLink {
+  display: block;
+  flex-shrink: 0;
+}
+.iconLogo {
+  vertical-align: middle;
+}
+.link {
+  font-family: Inter;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: -0.16px;
+  display: inline-block;
+}
+.navCenterWrapper {
+  display: flex;
+  gap: 40px;
+}
+.active {
+  font-family: Inter;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: -0.16px;
+  position: relative;
+  display: inline-block;
+}
+.active::after {
+  content: "";
+  position: absolute;
+  bottom: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  width: 8px;
+  height: 8px;
+  background-color: #54be96;
+}

@@ -1,0 +1,134 @@
+.hero {
+  margin-top: 78px;
+}
+.title {
+  font-weight: 600;
+  font-size: clamp(40px, 10vw, 80px);
+  line-height: clamp(40px, 10vw, 82px);
+  letter-spacing: -0.32px;
+  margin-bottom: 20px;
+}
+.title_parth {
+  font-weight: 600;
+  font-style: italic;
+  font-size: clamp(40px, 10vw, 80px);
+  line-height: 82px;
+  letter-spacing: -0.32px;
+  color: #54be96;
+}
+.descHome {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  letter-spacing: -0.36px;
+  color: #191a15;
+  margin-bottom: 40px;
+}
+.btn {
+  font-family: Inter;
+  color: #fbfbfb;
+  background-color: #54be96;
+  border: none;
+  font-weight: 500;
+  border-radius: 30px;
+  padding: 18px 50px;
+  font-size: 20px;
+  line-height: 24px;
+  vertical-align: middle;
+}
+.iconArrow {
+  vertical-align: middle;
+  margin-left: 18px;
+}
+.hero {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 125px;
+}
+.wrapperQuantity {
+  background-color: #54be96;
+  border: none;
+  border-radius: 20px;
+  width: 311px;
+  height: 118px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  position: absolute;
+  top: 333px;
+  right: 254px;
+}
+.quantityCheck {
+  width: 54px;
+  height: 54px;
+  background-color: #fbfbfb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 13px;
+}
+.quantityDescWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.quantityDesc {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 100%;
+  letter-spacing: 0;
+  color: #fbfbfb80;
+}
+.quantityNumber {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 100%;
+  letter-spacing: 0;
+  color: #fbfbfb;
+}
+.heroImgWrap {
+  position: relative;
+  flex-shrink: 0;
+}
+.heroImg {
+  display: block;
+  min-width: 464px;
+  height: 100%;
+  border-radius: 10px;
+  flex-shrink: 0;
+}
+.questionWrap {
+  transform: rotate(-15deg);
+  border-radius: 10px;
+  width: 40px;
+  height: 40px;
+  background-color: #4535af;
+  position: absolute;
+  top: 185px;
+  right: 454px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.iconQuestion {
+  transform: rotate(15deg);
+}
+.usersWrap {
+  transform: rotate(15deg);
+  border-radius: 10px;
+  width: 50px;
+  height: 50px;
+  background-color: #fbc75e;
+  position: absolute;
+  top: 38px;
+  right: -42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.iconUsers {
+  transform: rotate(-15deg);
+}

@@ -1,0 +1,91 @@
+.container {
+  position: relative;
+  display: inline-block;
+}
+
+.input {
+  width: 100%;
+  cursor: pointer;
+  border-radius: 12px;
+  border: 1px solid #191a151a;
+  background-color: transparent;
+  font-family: Inter;
+  padding: 16px 18px;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0;
+  vertical-align: middle;
+  color: #191a15;
+}
+.input::placeholder {
+  font-family: Inter;
+  color: #191a15;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0;
+  vertical-align: middle;
+}
+
+.dropdown {
+  display: block;
+  position: absolute;
+  top: 60px;
+  right: 0;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0px 20px 69px 0px #00000012;
+  padding: 16px;
+  z-index: 1;
+  font-family: Inter;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0;
+  color: #191a15;
+  min-width: 151px;
+  max-height: 180px;
+  overflow-y: scroll;
+  scrollbar-width: none;
+  box-sizing: border-box;
+}
+.dropdown::-webkit-scrollbar {
+  display: none;
+}
+.option {
+  padding: 4px 16px;
+  cursor: pointer;
+  font-family: Inter;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  text-align: center;
+  vertical-align: middle;
+  color: #191a154d;
+  box-sizing: border-box;
+}
+
+.option:hover,
+.option:focus {
+  color: #191a15;
+}
+
+.clock {
+  position: absolute;
+  right: 16px;
+  top: 16px;
+  pointer-events: none;
+}
+.title {
+  font-family: Inter;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0;
+  vertical-align: middle;
+  color: #191a15;
+  margin-bottom: 12px;
+}
+.clockIcon {
+  fill: none;
+  stroke: #191a15;
+}

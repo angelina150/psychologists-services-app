@@ -1,0 +1,152 @@
+.psychologistCard {
+  padding: 24px;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+  background-color: #fbfbfb;
+  margin-bottom: 32px;
+  border-radius: 24px;
+}
+.titleBlock {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-right: 54px;
+}
+.imgWrapper {
+  flex-shrink: 0;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 120px;
+  height: 120px;
+  border: 2px solid #54be9633;
+  border-radius: 30px;
+  flex-wrap: wrap;
+}
+.img {
+  display: block;
+  width: 96px;
+  height: 96px;
+  border-radius: 15px;
+}
+.name {
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 24px;
+  letter-spacing: 0;
+  vertical-align: middle;
+  color: #191a15;
+  margin-bottom: 24px;
+}
+.title {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  vertical-align: middle;
+  color: #8a8a89;
+  margin-bottom: 8px;
+}
+.infoLeftWrap {
+  display: flex;
+  flex-direction: row;
+}
+.infoLeft:not(:last-child):after {
+  content: "";
+  display: inline-block;
+  border: 1px solid #191a1533;
+  height: 16px;
+  vertical-align: middle;
+  margin-left: 16px;
+  margin-right: 16px;
+}
+.iconStarWrapper {
+  display: inline-block;
+  margin-right: 8px;
+}
+.iconStar {
+  vertical-align: middle;
+}
+.infoPrice {
+  color: #38cd3e;
+}
+.desc {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  color: #191a1580;
+  margin-bottom: 14px;
+}
+.infoWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 4px;
+  row-gap: 8px;
+  margin-bottom: 24px;
+}
+
+.info {
+  display: inline;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0;
+  vertical-align: middle;
+  color: #191a15;
+  border-radius: 24px;
+  background-color: #f3f3f3;
+  padding: 8px 16px;
+}
+.infoName {
+  color: #8a8a89;
+}
+
+.btnAppointment {
+  color: #fbfbfb;
+  background-color: #54be96;
+  border: none;
+  border-radius: 30px;
+  padding: 14px 32px;
+  font-size: 16px;
+  line-height: 20px;
+  margin-top: 15px;
+  margin-bottom: 24px;
+  letter-spacing: -0.16px;
+}
+.btnReadMore {
+  border: none;
+  background-color: transparent;
+  text-decoration: underline;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0;
+  vertical-align: middle;
+  color: #191a15;
+}
+
+.btnFavorite {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  display: inline;
+  padding: 0;
+}
+.iconActive {
+  fill: none !important;
+  stroke: currentColor;
+  stroke-width: 2;
+}
+.iconOnline {
+  position: absolute;
+  top: 9px;
+  right: 14px;
+}
+.reviews {
+  margin-top: 34px;
+}

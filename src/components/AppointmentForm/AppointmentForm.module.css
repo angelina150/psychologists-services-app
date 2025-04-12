@@ -1,0 +1,129 @@
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(25, 26, 21, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  overscroll-behavior: none;
+  overflow: hidden;
+}
+
+.modalContent {
+  position: relative;
+  width: 600px;
+  background-color: #fbfbfb;
+  padding: 64px;
+  border-radius: 30px;
+}
+
+.iconClose {
+  stroke: rgba(25, 26, 21, 1);
+}
+.closeBtn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-color: transparent;
+  border: none;
+}
+.aboutPsychologist {
+  display: flex;
+  flex-direction: row;
+  gap: 14px;
+  margin-bottom: 40px;
+}
+.img {
+  width: 44px;
+  height: 44px;
+  border-radius: 15px;
+}
+.title {
+  font-weight: 500;
+  font-size: 40px;
+  line-height: 48px;
+  color: #191a15;
+  margin-bottom: 20px;
+  letter-spacing: -0.8px;
+}
+.desc {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  color: #191a1580;
+  margin-bottom: 40px;
+  letter-spacing: 0;
+}
+.psychologistTitle {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  vertical-align: middle;
+  color: #8a8a89;
+  margin-bottom: 4px;
+}
+.name {
+  color: #191a15;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  vertical-align: middle;
+}
+
+.btnSend {
+  background-color: #54be96;
+  border: none;
+  border-radius: 30px;
+  color: #fbfbfb;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  text-align: center;
+  width: 472px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  font-family: Inter;
+}
+.input,
+.comment {
+  font-family: Inter;
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid #191a151a;
+  background-color: transparent;
+  padding: 16px 18px;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0;
+  vertical-align: middle;
+  color: #191a15;
+}
+.input::placeholder,
+.comment::placeholder {
+  font-family: Inter;
+  color: #191a15;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0;
+  vertical-align: middle;
+}
+.input {
+  font-family: Inter;
+  margin-bottom: 16px;
+}
+.comment {
+  font-family: Inter;
+  resize: none;
+  min-height: 116px;
+  margin-bottom: 40px;
+}
+.shortInputWrap {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 8px;
+}

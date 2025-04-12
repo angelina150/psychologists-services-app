@@ -1,0 +1,13 @@
+.btn {
+  display: block;
+  text-align: center;
+  margin-top: 32px;
+  margin-bottom: 100px;
+  background-color: #54be96;
+  color: #fbfbfb;
+  padding: 14px 48px;
+  border: none;
+  border-radius: 30px;
+  margin-left: auto;
+  margin-right: auto;
+}
