@@ -34,47 +34,10 @@ export const AuthNav = ({ setIsMenuOpen }) => {
       </button>
 
       {activeModal === "register" && (
-        <Modal
-          isOpen={true}
-          onRequestClose={closeModal}
-          contentLabel="Registration Form"
-          aria-labelledby="registration-form-title"
-          aria-describedby="registration-form-description"
-          className={css.modalContent}
-          overlayClassName={css.modalOverlay}
-        >
-          <h2 id="registration-form-title" className={css.modalTitle}>
-            Registration Form
-          </h2>
-          <p
-            id="registration-form-description"
-            className={css.modalDescription}
-          >
-            Please fill out the form below to register.
-          </p>
-          <RegistrationForm closeModal={closeModal} />
-        </Modal>
+        <RegistrationForm closeModal={closeModal} />
       )}
 
-      {activeModal === "login" && (
-        <Modal
-          isOpen={true}
-          onRequestClose={closeModal}
-          contentLabel="Login Form"
-          aria-labelledby="login-form-title"
-          aria-describedby="login-form-description"
-          className={css.modalContent}
-          overlayClassName={css.modalOverlay}
-        >
-          <h2 id="login-form-title" className={css.modalTitle}>
-            Login Form
-          </h2>
-          <p id="login-form-description" className={css.modalDescription}>
-            Please enter your credentials to log in.
-          </p>
-          <LoginForm closeModal={closeModal} />
-        </Modal>
-      )}
+      {activeModal === "login" && <LoginForm closeModal={closeModal} />}
     </div>
   );
 };

@@ -100,10 +100,6 @@ const AppointmentForm = ({ onClose, psychologist }) => {
           onSubmit={handleSubmit(onSubmit)}
           aria-labelledby="formTitle"
         >
-          <h3 id="formTitle" className="sr-only">
-            Fill out the form below to schedule an appointment
-          </h3>
-
           <div>
             <label className={css.label}>
               {errors.name && (
