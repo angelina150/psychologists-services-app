@@ -1,7 +1,9 @@
 import { useNavigate } from "react-router-dom";
 import css from "./Home.module.css";
+
 const Home = () => {
   const navigate = useNavigate();
+
   return (
     <section className={css.hero}>
       <div className={css.heroText}>
@@ -20,9 +22,15 @@ const Home = () => {
             onClick={() => {
               navigate("/psychologists");
             }}
+            aria-label="Go to psychologists list"
           >
             Get started
-            <svg className={css.iconArrow} width="18" height="18">
+            <svg
+              className={css.iconArrow}
+              width="18"
+              height="18"
+              aria-hidden="true"
+            >
               <use href="/icons/icons.svg#icon-arrow"></use>
             </svg>
           </button>
@@ -32,11 +40,17 @@ const Home = () => {
         <img
           className={css.heroImg}
           src="/img/hero-img.jpg"
-          alt="Photo of a psychologist"
+          alt="A professional psychologist talking to a patient"
+          loading="lazy"
         />
         <div className={css.wrapperQuantity}>
           <div className={css.quantityCheck}>
-            <svg className={css.iconCheck} width="30" height="30">
+            <svg
+              className={css.iconCheck}
+              width="30"
+              height="30"
+              aria-hidden="true"
+            >
               <use href="/icons/icons.svg#icon-home-check"></use>
             </svg>
           </div>
@@ -45,13 +59,23 @@ const Home = () => {
             <p className={css.quantityNumber}>15,000</p>
           </div>
         </div>
-        <div className={css.questionWrap}>
-          <svg className={css.iconQuestion} width="10" height="17">
+        <div className={css.questionWrap} aria-label="Have a question?">
+          <svg
+            className={css.iconQuestion}
+            width="10"
+            height="17"
+            aria-hidden="true"
+          >
             <use href="/icons/icons.svg#icon-question"></use>
           </svg>
         </div>
-        <div className={css.usersWrap}>
-          <svg className={css.iconUsers} width="33" height="24.8">
+        <div className={css.usersWrap} aria-label="Number of users">
+          <svg
+            className={css.iconUsers}
+            width="33"
+            height="24.8"
+            aria-hidden="true"
+          >
             <use href="/icons/icons.svg#icon-users"></use>
           </svg>
         </div>

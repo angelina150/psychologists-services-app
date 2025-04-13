@@ -42,12 +42,14 @@ const AppointmentForm = ({ onClose, psychologist }) => {
       onClose();
     }, 1500);
   };
+
   useEffect(() => {
     document.body.style.overflow = "hidden";
     return () => {
       document.body.style.overflow = "auto";
     };
   }, []);
+
   return (
     <Modal
       style={{ content: {}, overlay: {} }}
@@ -57,16 +59,25 @@ const AppointmentForm = ({ onClose, psychologist }) => {
       shouldCloseOnOverlayClick={true}
       className={css.modalContent}
       overlayClassName={css.modalOverlay}
+      aria-labelledby="modalTitle"
+      aria-describedby="modalDesc"
     >
       {isLoading && <Loader />}
       <div className={css.wrapper}>
-        <button className={css.closeBtn} type="button" onClick={onClose}>
+        <button
+          className={css.closeBtn}
+          type="button"
+          onClick={onClose}
+          aria-label="Close appointment form"
+        >
           <svg className={css.iconClose} width="32" height="32">
             <use href="/icons/icons.svg#icon-close"></use>
           </svg>
         </button>
-        <h2 className={css.title}>Make an appointment with a psychologist</h2>
-        <p className={css.desc}>
+        <h2 className={css.title} id="modalTitle">
+          Make an appointment with a psychologist
+        </h2>
+        <p className={css.desc} id="modalDesc">
           You are on the verge of changing your life for the better. Fill out
           the short form below to book your personal appointment with a
           professional psychologist. We guarantee confidentiality and respect
@@ -77,13 +88,22 @@ const AppointmentForm = ({ onClose, psychologist }) => {
             className={css.img}
             src={psychologist.avatar_url}
             alt={psychologist.name}
+            aria-describedby="psychologistDesc"
           />
           <div className={css.aboutPsychologistDesc}>
             <p className={css.psychologistTitle}>Your psychologist</p>
             <h3 className={css.name}>{psychologist.name}</h3>
           </div>
         </div>
-        <form className={css.form} onSubmit={handleSubmit(onSubmit)}>
+        <form
+          className={css.form}
+          onSubmit={handleSubmit(onSubmit)}
+          aria-labelledby="formTitle"
+        >
+          <h3 id="formTitle" className="sr-only">
+            Fill out the form below to schedule an appointment
+          </h3>
+
           <div>
             <label className={css.label}>
               {errors.name && (
@@ -93,6 +113,7 @@ const AppointmentForm = ({ onClose, psychologist }) => {
                 className={css.input}
                 {...register("name")}
                 placeholder="Name"
+                aria-label="Enter your name"
               />
             </label>
           </div>
@@ -106,6 +127,7 @@ const AppointmentForm = ({ onClose, psychologist }) => {
                 className={css.input}
                 {...register("phone")}
                 placeholder="+380"
+                aria-label="Enter your phone number"
               />
             </label>
             <div className={css.time}>
@@ -126,6 +148,7 @@ const AppointmentForm = ({ onClose, psychologist }) => {
                 {...register("email")}
                 type="email"
                 placeholder="Email"
+                aria-label="Enter your email"
               />
             </label>
           </div>
@@ -139,11 +162,16 @@ const AppointmentForm = ({ onClose, psychologist }) => {
                 className={css.comment}
                 {...register("comment")}
                 placeholder="Comment"
+                aria-label="Add a comment"
               />
             </label>
           </div>
 
-          <button className={css.btnSend} type="submit">
+          <button
+            className={css.btnSend}
+            type="submit"
+            aria-label="Submit appointment form"
+          >
             Send
           </button>
         </form>

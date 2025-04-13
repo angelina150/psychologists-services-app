@@ -22,6 +22,7 @@ export const PsychologistsList = ({
         valueA = a.rating;
         valueB = b.rating;
       }
+
       if (sortDirection === "asc") {
         return valueA < valueB ? -1 : valueA > valueB ? 1 : 0;
       } else {
@@ -29,13 +30,23 @@ export const PsychologistsList = ({
       }
     });
   };
+
   const sortedPsychologists = sortPsychologists([...psychologists]);
+
   return (
-    <div>
+    <div role="list" aria-label="Psychologists list">
       {sortedPsychologists.length > 0 ? (
         sortedPsychologists.map((psychologist, index) => (
-          <div key={psychologist.name}>
-            <PsychologistsItem psychologist={psychologist} index={index} />
+          <div
+            key={psychologist.id || psychologist.name}
+            role="listitem"
+            aria-labelledby={`psychologist-${psychologist.id}`}
+          >
+            <PsychologistsItem
+              psychologist={psychologist}
+              index={index}
+              aria-labelledby={`psychologist-${psychologist.id}`}
+            />
           </div>
         ))
       ) : (
