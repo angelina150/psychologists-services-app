@@ -37,3 +37,9 @@
 .name::first-letter {
   text-transform: uppercase;
 }
+@media screen and (max-width: 1240px) {
+  .userMenuWrap {
+    padding: 20px;
+    flex-direction: column;
+  }
+}

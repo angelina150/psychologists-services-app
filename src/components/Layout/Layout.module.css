@@ -1,14 +1,136 @@
 .container {
-  max-width: 1440px;
+  min-width: 320px;
   margin: 0 auto;
-  padding: 0 128px;
+  padding: 0 20px;
 }
+
 .wrapper {
-  display: flex;
-  flex-direction: row;
-  padding-top: 24px;
-  padding-bottom: 24px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: clamp(5px, 2vw, 20px);
+  padding: 10px 0;
   align-items: center;
-  justify-content: space-between;
   border-bottom: 1px solid #191a151a;
+}
+
+.burger {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  background-color: #54be96;
+  border: none;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.icon {
+  stroke: #fbfbfb;
+  fill: #fbfbfb;
+}
+
+.iconClose {
+  position: absolute;
+  top: 10px;
+  right: 200px;
+  stroke: #191a15;
+}
+
+.btnClose {
+  border: none;
+  background-color: transparent;
+}
+
+.menuWrap {
+  display: flex;
+  align-items: center;
+}
+
+.menuMobileOpen {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 250px;
+  height: 100vh;
+  background-color: white;
+  z-index: 10;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 0;
+}
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 9;
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 1440px;
+    padding: 0 64px;
+  }
+
+  .wrapper {
+    padding: 20px 0;
+  }
+}
+
+@media (min-width: 1240px) {
+  .container {
+    max-width: 1440px;
+    padding: 0 128px;
+  }
+
+  .wrapper {
+    padding: 24px 0;
+  }
+
+  .btnClose {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 1240px) {
+  .burger {
+    display: flex;
+  }
+
+  .menuWrap {
+    display: none;
+  }
+
+  .menuMobileOpen {
+    display: flex;
+  }
+}
+
+@media screen and (min-width: 1241px) {
+  .burger {
+    display: none;
+  }
+
+  .menuWrap {
+    display: flex !important;
+  }
+
+  .menuMobileOpen {
+    position: relative;
+    box-shadow: none;
+    padding: 0;
+    height: auto;
+    width: auto;
+    z-index: 100;
+  }
+
+  .backdrop {
+    display: none;
+  }
 }

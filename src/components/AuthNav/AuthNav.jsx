@@ -4,19 +4,28 @@ import css from "./AuthNav.module.css";
 import RegistrationForm from "../RegistrationForm/RegistrationForm.jsx";
 import LoginForm from "../LoginForm/LoginForm.jsx";
 
-export const AuthNav = () => {
+export const AuthNav = ({ setIsMenuOpen }) => {
   const [activeModal, setActiveModal] = useState(null);
 
   const closeModal = () => setActiveModal(null);
 
   return (
     <div className={css.wrapper}>
-      <button className={css.btnLogin} onClick={() => setActiveModal("login")}>
+      <button
+        className={css.btnLogin}
+        onClick={() => {
+          setActiveModal("login");
+          setIsMenuOpen(false);
+        }}
+      >
         Log In
       </button>
       <button
         className={css.btnRegistr}
-        onClick={() => setActiveModal("register")}
+        onClick={() => {
+          setActiveModal("register");
+          setIsMenuOpen(false);
+        }}
       >
         Registration
       </button>

@@ -5,29 +5,41 @@ import Modal from "react-modal";
 import css from "./LoginForm.module.css";
 import { useEffect, useState } from "react";
 import PasswordToggleButton from "../PasswordToggleButton/PasswordToggleButton.jsx";
+import { toast } from "react-toastify";
+import { yupResolver } from "@hookform/resolvers/yup";
+import Loader from "../Loader/Loader.jsx";
 
 const schema = yup.object().shape({
   email: yup.string().email().required("Email is required"),
-  password: yup.string().min(6).required("Password is required"),
+  password: yup
+    .string()
+    .min(6, "Password must be at least 6 characters")
+    .required("Password is required"),
 });
 
 const LoginForm = ({ closeModal }) => {
+  const [isLoading, setIsLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useForm({
+    resolver: yupResolver(schema),
+  });
   const auth = getAuth();
 
   const onSubmit = (data) => {
+    setIsLoading(true);
     signInWithEmailAndPassword(auth, data.email, data.password)
       .then(() => {
-        console.log("User logged in successfully");
         closeModal();
       })
       .catch((error) => {
-        console.error("Error during login:", error.message);
+        toast.error("Error during login", error.message);
+      })
+      .finally(() => {
+        setIsLoading(false);
       });
   };
   useEffect(() => {
@@ -46,6 +58,7 @@ const LoginForm = ({ closeModal }) => {
       isOpen={true}
       onRequestClose={closeModal}
     >
+      {isLoading && <Loader />}
       <div className={css.containerLogin}>
         <h2 className={css.title}>Log In</h2>
         <p className={css.desc}>
@@ -59,21 +72,26 @@ const LoginForm = ({ closeModal }) => {
         </button>
         <form className={css.formLogIn} onSubmit={handleSubmit(onSubmit)}>
           <label>
+            {errors.email && (
+              <span className={css.error}>{errors.email.message}</span>
+            )}
             <input
               className={css.input}
               {...register("email")}
               placeholder="Email"
             />
-            {errors.email && <span>{errors.email.message}</span>}
           </label>
           <label className={css.labelPassword}>
+            {errors.password && (
+              <span className={css.error}>{errors.password.message}</span>
+            )}
             <input
               type={showPassword.password ? "text" : "password"}
               className={css.input}
               {...register("password")}
               placeholder="Password"
             />
-            {errors.password && <span>{errors.password.message}</span>}
+
             <PasswordToggleButton
               isVisible={showPassword.password}
               onClick={() =>

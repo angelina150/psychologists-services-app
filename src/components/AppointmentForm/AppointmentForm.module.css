@@ -4,7 +4,7 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(25, 26, 21, 0.6);
+  background-color: rgba(25, 26, 21, 0.6);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -15,15 +15,48 @@
 
 .modalContent {
   position: relative;
-  width: 600px;
+  width: 90%;
+  max-width: 500px;
+  padding: 32px;
   background-color: #fbfbfb;
-  padding: 64px;
-  border-radius: 30px;
+  border-radius: 16px;
+  overflow: hidden;
+  max-height: 90vh;
+  overflow-y: auto;
 }
 
-.iconClose {
-  stroke: rgba(25, 26, 21, 1);
+@media (min-width: 768px) {
+  .modalContent {
+    max-width: 550px;
+    padding: 40px;
+    border-radius: 20px;
+  }
 }
+
+@media (min-width: 1240px) {
+  .modalContent {
+    max-width: 600px;
+    padding: 64px;
+    border-radius: 30px;
+  }
+  .closeBtn {
+    top: 28px;
+    right: 28px;
+  }
+}
+.modalContent::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+.modalContent::-webkit-scrollbar-thumb {
+  background: transparent;
+}
+
+.modalContent::-webkit-scrollbar-track {
+  background: transparent;
+}
+
 .closeBtn {
   position: absolute;
   top: 20px;
@@ -31,11 +64,14 @@
   background-color: transparent;
   border: none;
 }
+.iconClose {
+  stroke: #191a15;
+}
 .aboutPsychologist {
   display: flex;
   flex-direction: row;
   gap: 14px;
-  margin-bottom: 40px;
+  margin-bottom: clamp(20px, 5vw, 40px);
 }
 .img {
   width: 44px;
@@ -44,18 +80,18 @@
 }
 .title {
   font-weight: 500;
-  font-size: 40px;
-  line-height: 48px;
+  font-size: clamp(20px, 10vw, 40px);
+  line-height: clamp(28px, 12vw, 48px);
   color: #191a15;
-  margin-bottom: 20px;
+  margin-bottom: clamp(12px, 10vw, 20px);
   letter-spacing: -0.8px;
 }
 .desc {
   font-weight: 400;
-  font-size: 16px;
-  line-height: 20px;
+  font-size: clamp(12px, 10vw, 16px);
+  line-height: clamp(16px, 10vw, 20px);
   color: #191a1580;
-  margin-bottom: 40px;
+  margin-bottom: clamp(20px, 5vw, 40px);
   letter-spacing: 0;
 }
 .psychologistTitle {
@@ -82,7 +118,7 @@
   padding-top: 16px;
   padding-bottom: 16px;
   text-align: center;
-  width: 472px;
+  width: 100%;
   font-weight: 500;
   font-size: 16px;
   line-height: 20px;
@@ -116,17 +152,26 @@
 }
 .input {
   font-family: Inter;
-  margin-bottom: 16px;
+  margin-bottom: clamp(8px, 10vw, 16px);
 }
 .comment {
   font-family: Inter;
   resize: none;
   min-height: 116px;
-  margin-bottom: 40px;
+  margin-bottom: clamp(20px, 5vw, 40px);
 }
 .shortInputWrap {
   display: flex;
   flex-direction: row;
   justify-content: center;
   gap: 8px;
+}
+.time {
+  display: flex;
+  flex-direction: column;
+}
+
+.error {
+  color: red;
+  margin-bottom: 2px;
 }

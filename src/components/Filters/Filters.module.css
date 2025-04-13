@@ -1,7 +1,7 @@
 .selectWrapper {
   position: relative;
-  margin-top: 64px;
-  margin-bottom: 32px;
+  margin-top: clamp(24px, 5vw, 64px);
+  margin-bottom: clamp(16px, 5vw, 32px);
 }
 
 .selectedValue {

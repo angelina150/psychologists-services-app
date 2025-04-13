@@ -9,6 +9,9 @@ import Modal from "react-modal";
 import css from "./RegistrationForm.module.css";
 import PasswordToggleButton from "../PasswordToggleButton/PasswordToggleButton.jsx";
 import { useEffect, useState } from "react";
+import { toast } from "react-toastify";
+import { yupResolver } from "@hookform/resolvers/yup";
+import Loader from "../Loader/Loader.jsx";
 
 const schema = yup.object().shape({
   name: yup.string().required("Name is required"),
@@ -20,16 +23,20 @@ const schema = yup.object().shape({
 });
 
 const RegistrationForm = ({ closeModal }) => {
+  const [isLoading, setIsLoading] = useState(false);
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useForm({
+    resolver: yupResolver(schema),
+  });
 
   const auth = getAuth();
   const [showPassword, setShowPassword] = useState(false);
 
   const onSubmit = (data) => {
+    setIsLoading(true);
     createUserWithEmailAndPassword(auth, data.email, data.password)
       .then((userCredential) => {
         const user = userCredential.user;
@@ -37,15 +44,16 @@ const RegistrationForm = ({ closeModal }) => {
           displayName: data.name,
         })
           .then(() => {
-            console.log("User registered:", user);
+            setIsLoading(false);
             closeModal();
           })
           .catch((error) => {
-            console.error("Error updating user profile:", error);
+            setIsLoading(false);
+            toast.error("Error updating user profile", error);
           });
       })
       .catch((error) => {
-        console.error("Error during registration:", error);
+        toast.error("Error during registration", error);
       });
   };
   useEffect(() => {
@@ -64,6 +72,7 @@ const RegistrationForm = ({ closeModal }) => {
       overlayClassName={css.modalBackdrop}
       className={css.modalContent}
     >
+      {isLoading && <Loader />}
       <button className={css.closeBtn} type="button" onClick={closeModal}>
         <svg className={css.iconClose} width="32" height="32">
           <use href="/icons/icons.svg#icon-close"></use>
@@ -77,29 +86,35 @@ const RegistrationForm = ({ closeModal }) => {
       </p>
       <form className={css.formRegisrt} onSubmit={handleSubmit(onSubmit)}>
         <label>
+          {errors.name && (
+            <span className={css.error}>{errors.name.message}</span>
+          )}
           <input
             className={css.input}
             {...register("name")}
             placeholder="Name"
           />
-          {errors.name && <span>{errors.name.message}</span>}
         </label>
         <label>
+          {errors.email && (
+            <span className={css.error}>{errors.email.message}</span>
+          )}
           <input
             className={css.input}
             {...register("email")}
             placeholder="Email"
           />
-          {errors.email && <span>{errors.email.message}</span>}
         </label>
         <label className={css.labelPassword}>
+          {errors.password && (
+            <span className={css.error}>{errors.password.message}</span>
+          )}
           <input
             placeholder="Password"
             className={css.input}
             type={showPassword.password ? "text" : "password"}
             {...register("password")}
           />
-          {errors.password && <span>{errors.password.message}</span>}
 
           <PasswordToggleButton
             isVisible={showPassword.password}

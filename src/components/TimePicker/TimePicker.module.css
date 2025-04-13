@@ -16,6 +16,7 @@
   letter-spacing: 0;
   vertical-align: middle;
   color: #191a15;
+  margin-bottom: 16px;
 }
 .input::placeholder {
   font-family: Inter;

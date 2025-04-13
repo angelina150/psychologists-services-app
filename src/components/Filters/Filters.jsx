@@ -7,18 +7,16 @@ const Filters = ({ onFilterChange }) => {
 
   const dropdownRef = useRef(null);
 
-  // Открытие/закрытие дропдауна
   const handleDropdownToggle = () => {
-    setIsOpen((prevState) => !prevState); // Меняем состояние на противоположное
+    setIsOpen((prevState) => !prevState);
   };
 
   const handleFilterChange = (filter) => {
     setSelectedFilter(filter);
     onFilterChange(filter);
-    setIsOpen(false); // Закрытие меню после выбора фильтра
+    setIsOpen(false);
   };
 
-  // Закрытие меню при клике вне компонента
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
@@ -70,15 +68,15 @@ const Filters = ({ onFilterChange }) => {
           </p>
           <p
             className={css.option}
-            onClick={() => handleFilterChange("Less than 10$")}
+            onClick={() => handleFilterChange("Low price")}
           >
-            Less than 10$
+            Low price
           </p>
           <p
             className={css.option}
-            onClick={() => handleFilterChange("Greater than 10$")}
+            onClick={() => handleFilterChange("High price")}
           >
-            Greater than 10$
+            High price
           </p>
           <p
             className={css.option}

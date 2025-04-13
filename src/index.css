@@ -10,11 +10,13 @@
 
 html,
 body {
-  margin: 0 auto;
+  margin: 0;
+  padding: 0;
   min-width: 320px;
   min-height: 100vh;
   font-size: 16px;
   background-color: #f5f5f5;
+  font-family: Inter, sans-serif;
 }
 
 body.home-page {

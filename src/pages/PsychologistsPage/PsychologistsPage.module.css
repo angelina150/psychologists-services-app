@@ -11,3 +11,8 @@
   margin-left: auto;
   margin-right: auto;
 }
+
+.desc {
+  text-align: center;
+  padding: 20px;
+}

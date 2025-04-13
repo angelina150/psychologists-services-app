@@ -2,7 +2,7 @@ import { getAuth } from "firebase/auth";
 import Logout from "../Logout/Logout.jsx";
 import css from "./UserMenu.module.css";
 
-const UserMenu = () => {
+const UserMenu = ({ setIsMenuOpen }) => {
   const auth = getAuth();
   const user = auth.currentUser;
 
@@ -22,7 +22,7 @@ const UserMenu = () => {
                 : user?.email?.split("@")[0]}
             </span>
           </div>
-          <Logout />
+          <Logout setIsMenuOpen={setIsMenuOpen} />
         </div>
       </>
     );

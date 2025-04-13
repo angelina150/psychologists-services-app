@@ -2,8 +2,8 @@
   max-width: 1440px;
   margin: 0 auto;
   text-align: center;
-  padding-left: 128px;
-  padding-right: 128px;
+  padding-left: 5vw;
+  padding-right: 5vw;
 }
 
 .loader {
@@ -11,4 +11,18 @@
   left: 50%;
   top: 50%;
   transform: translateX(-50%) translateY(-50%);
+}
+@media (max-width: 768px) {
+  #root {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  #root {
+    padding-left: 16px;
+    padding-right: 16px;
+    font-size: 14px;
+  }
 }

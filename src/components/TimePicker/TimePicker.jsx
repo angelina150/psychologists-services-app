@@ -59,6 +59,7 @@ const TimePicker = ({ setValue }) => {
         readOnly
         onClick={toggleDropdown}
       />
+
       <svg className={css.clock} width="20" height="20">
         <use className={css.clockIcon} href="/icons/icons.svg#icon-clock"></use>
       </svg>

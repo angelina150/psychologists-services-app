@@ -4,7 +4,9 @@ import { useForm } from "react-hook-form";
 import Modal from "react-modal";
 import * as yup from "yup";
 import TimePicker from "../TimePicker/TimePicker.jsx";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { toast } from "react-toastify";
+import Loader from "../Loader/Loader.jsx";
 
 const schema = yup.object().shape({
   name: yup.string().required("Name is required"),
@@ -15,6 +17,8 @@ const schema = yup.object().shape({
 });
 
 const AppointmentForm = ({ onClose, psychologist }) => {
+  const [isLoading, setIsLoading] = useState(false);
+
   const {
     register,
     handleSubmit,
@@ -25,12 +29,18 @@ const AppointmentForm = ({ onClose, psychologist }) => {
   });
 
   const onSubmit = (data) => {
+    setIsLoading(true);
     const formData = {
       ...data,
       psychologistName: psychologist.name,
     };
-    console.log(formData);
-    onClose();
+
+    setTimeout(() => {
+      toast.success("The data has been successfully submitted.");
+      console.log(formData);
+      setIsLoading(false);
+      onClose();
+    }, 1500);
   };
   useEffect(() => {
     document.body.style.overflow = "hidden";
@@ -41,13 +51,14 @@ const AppointmentForm = ({ onClose, psychologist }) => {
   return (
     <Modal
       style={{ content: {}, overlay: {} }}
-      shouldCloseOnOverlayClick={true}
       isOpen={true}
       onRequestClose={onClose}
       shouldCloseOnEsc={true}
+      shouldCloseOnOverlayClick={true}
       className={css.modalContent}
       overlayClassName={css.modalOverlay}
     >
+      {isLoading && <Loader />}
       <div className={css.wrapper}>
         <button className={css.closeBtn} type="button" onClick={onClose}>
           <svg className={css.iconClose} width="32" height="32">
@@ -75,47 +86,60 @@ const AppointmentForm = ({ onClose, psychologist }) => {
         <form className={css.form} onSubmit={handleSubmit(onSubmit)}>
           <div>
             <label className={css.label}>
+              {errors.name && (
+                <span className={css.error}>{errors.name.message}</span>
+              )}
               <input
                 className={css.input}
                 {...register("name")}
                 placeholder="Name"
               />
-              {errors.name && <p>{errors.name.message}</p>}
             </label>
           </div>
 
           <div className={css.shortInputWrap}>
             <label className={css.label}>
+              {errors.phone && (
+                <span className={css.error}>{errors.phone.message}</span>
+              )}
               <input
                 className={css.input}
                 {...register("phone")}
                 placeholder="+380"
               />
-              {errors.phone && <p>{errors.phone.message}</p>}
             </label>
-            <TimePicker setValue={setValue} />
+            <div className={css.time}>
+              {errors.time && (
+                <span className={css.error}>{errors.time.message}</span>
+              )}
+              <TimePicker setValue={setValue} />
+            </div>
           </div>
 
           <div>
             <label className={css.label}>
+              {errors.email && (
+                <span className={css.error}>{errors.email.message}</span>
+              )}
               <input
                 className={css.input}
                 {...register("email")}
                 type="email"
                 placeholder="Email"
               />
-              {errors.email && <p>{errors.email.message}</p>}
             </label>
           </div>
 
           <div>
             <label className={css.label}>
+              {errors.comment && (
+                <span className={css.error}>{errors.comment.message}</span>
+              )}
               <textarea
                 className={css.comment}
                 {...register("comment")}
                 placeholder="Comment"
               />
-              {errors.comment && <p>{errors.comment.message}</p>}
             </label>
           </div>
 

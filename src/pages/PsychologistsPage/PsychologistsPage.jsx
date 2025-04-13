@@ -5,6 +5,7 @@ import { getDatabase, ref, get } from "firebase/database";
 import Filters from "../../components/Filters/Filters.jsx";
 import css from "./PsychologistsPage.module.css";
 import { database } from "../../firebase.js";
+import { toast } from "react-toastify";
 
 const PAGE_SIZE = 3;
 
@@ -25,7 +26,7 @@ const PsychologistsPage = () => {
         setPsychologists(list.slice(0, PAGE_SIZE));
       }
     } catch (error) {
-      console.error("Error loading psychologists:", error);
+      toast.error("Error loading psychologists:", error);
     }
   };
 
@@ -84,7 +85,9 @@ const PsychologistsPage = () => {
 
   return (
     <div className={css.container}>
-      <Filters onFilterChange={handleFilterChange} />
+      {psychologists.length > 0 && (
+        <Filters onFilterChange={handleFilterChange} />
+      )}
       <PsychologistsList psychologists={psychologists} />
       {psychologists.length < allPsychologists.length && (
         <button

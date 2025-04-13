@@ -1,5 +1,6 @@
 import React, { createContext, useState, useEffect } from "react";
 import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
+import { toast } from "react-toastify";
 
 const FavoritesContext = createContext();
 
@@ -42,9 +43,8 @@ export const FavoritesProvider = ({ children }) => {
       }
       setFavorites(updatedFavorites);
       localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
-      console.log("Saved favorites:", JSON.stringify(updatedFavorites));
     } else {
-      alert("To use this feature, you need to log in!");
+      toast.info("To use this feature, you need to log in!");
     }
   };
 

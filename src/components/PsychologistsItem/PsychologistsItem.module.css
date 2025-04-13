@@ -2,18 +2,16 @@
   padding: 24px;
   position: relative;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   gap: 24px;
   background-color: #fbfbfb;
-  margin-bottom: 32px;
   border-radius: 24px;
   width: 100%;
+  margin-bottom: 16px;
 }
 .titleBlock {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding-right: 54px;
+  flex-direction: column;
 }
 .imgWrapper {
   flex-shrink: 0;
@@ -32,6 +30,7 @@
   width: 96px;
   height: 96px;
   border-radius: 15px;
+  margin: 0 auto;
 }
 .name {
   font-weight: 500;
@@ -40,7 +39,7 @@
   letter-spacing: 0;
   vertical-align: middle;
   color: #191a15;
-  margin-bottom: 24px;
+  margin-bottom: 8px;
 }
 .title {
   font-weight: 500;
@@ -52,20 +51,13 @@
 }
 .infoLeftWrap {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 8px;
 }
-.infoLeft:not(:last-child):after {
-  content: "";
-  display: inline-block;
-  border: 1px solid #191a1533;
-  height: 16px;
-  vertical-align: middle;
-  margin-left: 16px;
-  margin-right: 16px;
-}
+
 .iconStarWrapper {
-  display: inline-block;
-  margin-right: 8px;
+  display: none;
 }
 .iconStar {
   vertical-align: middle;
@@ -153,4 +145,47 @@
 }
 .reviews {
   margin-top: 34px;
+}
+@media (min-width: 768px) {
+  .psychologistCard {
+    flex-direction: row;
+
+    margin-bottom: 32px;
+  }
+  .container {
+    max-width: 1440px;
+    padding: 0 64px;
+  }
+  .infoLeftWrap {
+    flex-direction: row;
+    margin-bottom: 8px;
+  }
+  .infoLeft:not(:last-child):after {
+    content: "";
+    display: inline-block;
+    border: 1px solid #191a1533;
+    height: 16px;
+    vertical-align: middle;
+    margin-left: 16px;
+    margin-right: 16px;
+  }
+  .iconStarWrapper {
+    display: inline-block;
+    margin-right: 8px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .titleBlock {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-right: 54px;
+  }
+  .name {
+    margin-bottom: 24px;
+  }
+  .infoLeftWrap {
+    margin-bottom: 0;
+  }
 }

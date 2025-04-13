@@ -2,6 +2,7 @@ import { useState } from "react";
 
 import css from "./PsychologistsList.module.css";
 import PsychologistsItem from "../PsychologistsItem/PsychologistsItem.jsx";
+import Loader from "../Loader/Loader.jsx";
 
 export const PsychologistsList = ({
   psychologists,
@@ -38,7 +39,7 @@ export const PsychologistsList = ({
           </div>
         ))
       ) : (
-        <p>Loading psychologists...</p>
+        <Loader />
       )}
     </div>
   );

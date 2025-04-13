@@ -1,7 +1,8 @@
 import { getAuth, signOut } from "firebase/auth";
 import { useNavigate, useLocation } from "react-router-dom";
 import css from "./Logout.module.css";
-const LogoutButton = () => {
+import { toast } from "react-toastify";
+const LogoutButton = ({ setIsMenuOpen }) => {
   const auth = getAuth();
   const navigate = useNavigate();
   const location = useLocation();
@@ -9,12 +10,12 @@ const LogoutButton = () => {
   const handleLogout = async () => {
     try {
       await signOut(auth);
-      console.log("User logged out successfully");
       if (location.pathname === "/favorites") {
         navigate("/");
       }
+      setIsMenuOpen(false);
     } catch (error) {
-      console.error("Error logging out:", error);
+      toast.error("Error logging out:", error);
     }
   };
 
